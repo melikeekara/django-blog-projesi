@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Profil Güncelle {% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form enctype="multipart/form-data" method="POST">
+        {{ form }}
+        <input type="submit" class="btn btn-danger mt-3 mb-3" value="Profil Güncelle"/>
+        {% csrf_token %}
+        
+{% endblock %}
